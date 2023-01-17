@@ -328,7 +328,10 @@ module.exports.choseUsername = asyncHandler(async (req, res) => {
     },
   });
 
-  if (alreadyRegistered) {
+  if (alreadyRegistered && alreadyRegistered.user_id === req.user) {
+    res.status(400);
+    throw new Error("You have to chose a new username");
+  } else if (alreadyRegistered) {
     res.status(400);
     throw new Error("Username already registered");
   }
