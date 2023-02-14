@@ -20,9 +20,9 @@ function isValid(value) {
   let special_characters = "`~!@#$%^&*()-_=+[]{};:'\"\\|/?.>,< ";
   for (let i = 0; i < value.length; i++) {
     if (special_characters.includes(value[i])) {
-      count.number++;
-    } else if (Number.isInteger(+value[i])) {
       count.special++;
+    } else if (Number.isInteger(+value[i])) {
+      count.number++;
     } else if (value[i].toLowerCase() === value[i]) {
       count.lowercase++;
     } else if (value[i].toUpperCase() === value[i]) {
